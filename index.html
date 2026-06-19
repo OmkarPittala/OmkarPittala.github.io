@@ -25,6 +25,9 @@ nav{
     align-items:center;
     padding:25px 10%;
     background:#111827;
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
 .logo{
@@ -44,39 +47,62 @@ nav a{
     text-decoration:none;
 }
 
+nav a:hover{
+    color:#4da6ff;
+}
+
 .hero{
     min-height:85vh;
     display:flex;
-    flex-direction:column;
     justify-content:center;
     align-items:center;
-    text-align:center;
-    padding:20px;
+    padding:80px 10%;
 }
 
-.hero h1{
+.hero-container{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:60px;
+    max-width:1150px;
+    width:100%;
+}
+
+.hero-text{
+    flex:1;
+}
+
+.hero-text h1{
     font-size:4rem;
     margin-bottom:15px;
 }
 
-.hero h2,
+.hero-text h2,
 .section h2{
     color:#4da6ff;
     margin-bottom:20px;
 }
 
-.hero p{
-    max-width:850px;
+.hero-text p{
+    max-width:700px;
     line-height:1.7;
     color:#c9d1d9;
     margin-bottom:30px;
+}
+
+.profile-photo{
+    width:260px;
+    height:260px;
+    border-radius:50%;
+    object-fit:cover;
+    border:4px solid #4da6ff;
+    box-shadow:0 0 30px rgba(77,166,255,0.45);
 }
 
 .buttons{
     display:flex;
     gap:15px;
     flex-wrap:wrap;
-    justify-content:center;
 }
 
 .btn{
@@ -84,6 +110,7 @@ nav a{
     border-radius:8px;
     text-decoration:none;
     font-weight:bold;
+    display:inline-block;
 }
 
 .primary{
@@ -155,6 +182,37 @@ footer{
     padding:30px;
     color:#8b949e;
 }
+
+@media(max-width:900px){
+    nav{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:15px;
+    }
+
+    .hero-container{
+        flex-direction:column-reverse;
+        text-align:center;
+    }
+
+    .hero-text h1{
+        font-size:3rem;
+    }
+
+    .buttons{
+        justify-content:center;
+    }
+
+    .profile-photo{
+        width:210px;
+        height:210px;
+    }
+}
 </style>
 </head>
 
@@ -164,38 +222,46 @@ footer{
     <div class="logo">Omkar Pittala</div>
 
     <ul>
-        <li><a href="#contact">Contact</a></li>
         <li><a href="#home">Home</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
     </ul>
 </nav>
 
 <section class="hero" id="home">
-    <h1>Omkar Pittala</h1>
+    <div class="hero-container">
 
-    <h2>Senior Java Full Stack Developer</h2>
+        <div class="hero-text">
+            <h1>Omkar Pittala</h1>
 
-    <p>
-        Senior Java Full Stack Developer with around 7 years of experience building
-        enterprise applications across Banking, Retirement Services, and Healthcare
-        domains. Experienced in Java, Spring Boot, Microservices, AWS, Angular,
-        Kafka, Kubernetes, and Cloud-Native Architectures.
-    </p>
+            <h2>Senior Java Full Stack Developer</h2>
 
-    <div class="buttons">
-        <a class="btn primary" href="https://github.com/OmkarPittala" target="_blank">
-    GitHub
-</a>
+            <p>
+                Senior Java Full Stack Developer with around 7 years of experience building
+                enterprise applications across Banking, Retirement Services, and Healthcare
+                domains. Experienced in Java, Spring Boot, Microservices, AWS, Angular,
+                Kafka, Kubernetes, and Cloud-Native Architectures.
+            </p>
 
-<a class="btn primary" href="https://www.linkedin.com/in/omkar-pittala-70b534275/" target="_blank">
-    LinkedIn
-</a>
+            <div class="buttons">
+                <a class="btn primary" href="https://github.com/OmkarPittala" target="_blank">
+                    GitHub
+                </a>
 
-<a class="btn primary" href="Omkar_Pittala_Resume.docx" target="_blank">
-    Download Resume
-</a>
+                <a class="btn primary" href="https://www.linkedin.com/in/omkar-pittala-70b534275/" target="_blank">
+                    LinkedIn
+                </a>
+
+                <a class="btn primary" href="Omkar_Pittala_Resume.docx" target="_blank">
+                    Download Resume
+                </a>
+            </div>
+        </div>
+
+        <img class="profile-photo" src="profile.jpg" alt="Omkar Pittala">
+
     </div>
 </section>
 
@@ -299,12 +365,11 @@ footer{
 
     </div>
 </section>
-    <section class="section" id="contact">
 
+<section class="section" id="contact">
     <h2>Contact Me</h2>
 
     <div class="experience-container">
-
         <div class="card">
 
             <h3>Let's Connect</h3>
@@ -318,8 +383,7 @@ footer{
             <br>
 
             <p>
-                <strong>Email:</strong>
-                omkaroln@gmail.com
+                <strong>Email:</strong> omkaroln@gmail.com
             </p>
 
             <br>
@@ -341,9 +405,7 @@ footer{
             </p>
 
         </div>
-
     </div>
-
 </section>
 
 <footer>
